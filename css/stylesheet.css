@@ -690,9 +690,9 @@ header .container .main-nav li > a:hover::before {
     position: absolute;
     right: 0;
     top: -50px;
-    border-radius: 50%;
     width: 100px;
     height: 100px;
+    border-radius: 50%;    
     border: 7px solid var(--section-background);
 }
 .Testimonials  .box h3 {
@@ -795,6 +795,7 @@ header .container .main-nav li > a:hover::before {
 }
 /* End time-members */
 
+/* Start Services */
 
 .services {
     padding: 100px 0;
@@ -802,18 +803,38 @@ header .container .main-nav li > a:hover::before {
     background-color: var(--section-background);
     transition: all var(--main-transition)
 }
+
 .services .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 35px;
 }
 .services .container .serv {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: white;
     box-shadow: var(--box-shadow);
+    transition: var(--main-transition);
+}
+.services .container .serv:hover {
+    transform: translateY(-10px);
+}
+.services .serv::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 3px;
+    background: #1787e0;
+    transition: var(--main-transition);
+}
+.services .container .serv:hover::after {
+    width: 100%;
 }
 .services .container .serv .content i {
     color: #ddd;
@@ -831,6 +852,7 @@ header .container .main-nav li > a:hover::before {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: 65px;
     padding: 15px 20px;
     overflow: hidden;
 }
@@ -839,7 +861,7 @@ header .container .main-nav li > a:hover::before {
     font-size: 30px;
     font-weight: bold;
     color: white;
-    line-height: 1.2;
+    vertical-align: auto;
     z-index: 10;
 }
 .services .container .serv .info::before {
@@ -871,3 +893,187 @@ header .container .main-nav li > a:hover::before {
     text-decoration: underline;
 
 }
+
+/* End Services */
+
+/* Start our skils */
+.our-skils {
+    padding: 100px 0;
+    position: relative;
+    transition: all var(--main-transition)
+}
+.our-skils .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+@media(max-width: 991px) {
+    .our-skils .container .image img {
+        display: none;
+    }    
+}
+.our-skils .container .box-skils {
+    flex: 1;
+}
+.our-skils .container .box-skils .skil {
+    margin: 20px 0;
+}
+.our-skils  .box-skils .skil h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--main-color);
+}
+.our-skils  .box-skils .skil h3 span {
+    font-size: 14px;
+    border: 2px solid #cecfcf;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+.our-skils  .box-skils .skil .progress {
+    position: relative;
+    width: 100%;
+    height: 15px;
+    background-color: #eee;
+    margin: 10px 0;
+    border-radius: 7px;
+    overflow: hidden;
+}
+.our-skils  .box-skils .skil .progress span {
+    position: absolute;
+    height: 100%;
+    background-color: var(--main-color);
+}
+/* End our skils */
+
+
+
+/* Start work step */
+.work {
+    padding: 100px 0;
+    position: relative;
+    background-color: var(--section-background);
+    transition: all var(--main-transition)
+}
+.work .container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 45px;
+}
+.work .container .image img {
+    padding: 30px;
+    max-width: 100%;
+}
+.work .work-steps {
+    padding: 50px 0;
+}
+.work .work-steps .works {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    width: 450px;
+    padding: 25px;
+    background-color: #f6f5f5;
+    border: 3px solid white;
+    border-radius: 7px;
+    margin: 20px 0;
+    z-index: 2;
+}
+.work .work-steps .works::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background-color: #ededed;
+    transition: var(--main-transition);
+    z-index: -1;
+}
+.work .work-steps .works:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.work .work-steps .works img {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
+.work .work-steps .works h4 {
+    color: var(--main-color);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.work .work-steps .works p {
+    color: #777;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+}
+/* End work step */
+
+/* Start events */
+.events {
+    padding: 100px 0;
+    position: relative;
+    transition: all var(--main-transition)
+}
+.events .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+.events .container img {
+    max-width: 450px;
+}
+.events .container .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+.events .content .count-down {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px 0;
+}
+.events .content .count-down .box {
+    text-align: center;
+    border: 2px solid var(--main-color);
+    border-radius: 7px;
+    width: 100px;
+}
+.events .content .count-down .box span {
+    display: block;
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--main-color);
+    margin: 20px;
+}
+.events .content .count-down .box p {
+    border-top:  2px solid var(--main-color) ;
+    padding: 5px 10px;
+}
+.events .content .info {
+    text-align: center;
+    margin: 30px 0;
+}
+.events .content .info h3 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.events .content .info p {
+    text-align: center;
+    line-height: 1.7;
+    font-size: 19px;
+    color: #777;
+}
+/* End events */

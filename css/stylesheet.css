@@ -13,7 +13,6 @@ html {
 
 body {
     font-family: 'Cairo', sans-serif;
-    height: 3000px;
     transition: 0.4s all ease;
 }
 /* Start Global css */
@@ -24,7 +23,8 @@ body {
     --main-padding: 100px 50px;
     --section-background: #ececec;
     --box-shadow: 0 0 10px #ddd;
-    --box-shadow-inset: 0 0 20px #ddd inset;
+    --box-shadow-inset: 0px 8px 24px rgba(0,0,0,10);
+
 }
 ul {
     list-style: none;
@@ -58,6 +58,27 @@ a {
     width: 1170px;
 }
 }
+
+/* Start Spikes */
+.spikes {
+position: relative;
+background: #2c3e50;
+}
+
+.spikes::after {
+content: '';
+position: absolute;
+right: 0;
+left: -0%;
+top: 100%;
+z-index: 10;
+display: block;
+height: 50px;
+background-size: 50px 100%;
+background-image: linear-gradient(135deg, white 25%, transparent 25%), linear-gradient(225deg, white 25%, transparent 25%);
+background-position: 0 0;
+}
+/* End Spikes */
 
 /* Start main title */
 .main-title {
@@ -141,7 +162,7 @@ header .container {
 header  .logo {
     color: var(--main-color);
     font-weight: bold;
-    font-size: 24px;
+    font-size: 25px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     height: 70px;
@@ -167,6 +188,7 @@ header .container .main-nav li  a {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     color: black;
     font-size: 18px;
     height: 70px;
@@ -204,8 +226,10 @@ header .container .main-nav li > a:hover::before {
         border-bottom: 2px solid #ddd ;
     }
     header .container .main-nav li > a {
-        font-size: 16px;
+        justify-content: center;
+        font-size: 12px;
         height: 50px;
+        padding: 0 auto;
     }
 }
 
@@ -975,7 +999,7 @@ header .container .main-nav li > a:hover::before {
     display: flex;
     align-items: center;
     flex: 1;
-    width: 450px;
+    width: 400px;
     padding: 25px;
     background-color: #f6f5f5;
     border: 3px solid white;
@@ -1015,6 +1039,7 @@ header .container .main-nav li > a:hover::before {
     line-height: 1.4;
     letter-spacing: 0.5px;
 }
+
 /* End work step */
 
 /* Start events */
@@ -1031,7 +1056,7 @@ header .container .main-nav li > a:hover::before {
     gap: 25px;
 }
 .events .container img {
-    max-width: 450px;
+    max-width: 400px;
 }
 .events .container .content {
     display: flex;
@@ -1042,7 +1067,7 @@ header .container .main-nav li > a:hover::before {
 .events .content .count-down {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     margin: 25px 0;
 }
 .events .content .count-down .box {
@@ -1073,7 +1098,515 @@ header .container .main-nav li > a:hover::before {
 .events .content .info p {
     text-align: center;
     line-height: 1.7;
-    font-size: 19px;
+    font-size: 18px;
     color: #777;
 }
+.events .subscrib {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px auto;
+    width: 450px;
+    background-color: #f6f6f6;
+    padding: 30px;
+    border-radius: 50px;
+}
+
+.events .subscrib input:first-child {
+    padding: 20px 20px;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+}
+.events .subscrib input:last-child {
+    padding: 20px 20px;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    background-color: var(--main-color-alt);
+    color: white;
+    font-weight: bolder;
+    font-size: 18px;
+    cursor: pointer;
+}
+@media(max-width: 767px) {
+    .events .subscrib {
+        flex-direction: column;
+        border-radius: 7px;
+    }
+    .events .subscrib input:first-child {
+        margin-bottom: 20px;
+    }
+}
 /* End events */
+
+/* Start Pricing */
+.pricing {
+    padding: 100px 0;
+    position: relative;
+    transition: all var(--main-transition);
+    background-color: var(--section-background);
+}
+.pricing .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 35px;
+    text-align: center;
+}
+.pricing .box {
+    position: relative;
+    box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+    background-color: white;  
+}
+.pricing .box:nth-child(2)::before{
+    position: absolute;
+    content: "Best Price";
+    top: 0;
+    right: 20px;
+    width: fit-content;
+    padding: 10px 10px 30px 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    writing-mode: vertical-rl;
+    text-align: center;
+    background-color: var(--main-color);
+}
+.pricing .box:nth-child(2)::after {
+    position: absolute;
+    content: "";
+    top: 79px;
+    right: 20px;
+    border-width: 20px;
+    border-color: transparent transparent white transparent;
+    border-style: solid;
+    z-index: 2;
+}
+.pricing .box .title {
+    margin: 25px 30px;
+    font-size: 22px;
+}
+.pricing .box  img {
+    width: 100px;
+    margin-bottom: 30px;
+}
+
+.pricing .box .pric {
+    margin-bottom: 35px;
+}
+.pricing .box .pric  h2 {
+    font-size: 60px;
+    font-weight: bold;
+    color: var(--main-color);
+}
+.pricing .box .pric {
+    color: #777;
+}
+.pricing .box .Features {
+    margin: 35px auto;
+    text-align: left;
+}
+.pricing .box .Features li {
+    position: relative;
+    padding: 25px 15px ;
+    border-top: 1px solid #eee;
+}
+.pricing .box .Features li::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f00c";
+    margin-right: 10px;
+    font-weight: 600;
+    color: var(--main-color);
+}
+.pricing .box a {
+    display: block;
+    width: fit-content;
+    margin: 30px auto;
+    padding: 15px;
+    color: var(--main-color);
+    border-radius: 7px;
+    font-weight:  bold;
+    letter-spacing: 1.2px;
+    border: 2px solid var(--main-color);
+    transition: var(--main-transition);
+}
+.pricing .box a:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+/* End Pricing */
+
+
+/* Start Top Videos */
+.top-videos {
+    padding: 100px 0;
+    position: relative;
+    transition: all var(--main-transition);
+}
+
+.top-videos .container .content {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #dddddd;
+}
+@media (max-width: 991px) {
+    .top-videos .container .content {
+        flex-direction: column;
+    }
+}
+.top-videos .content .list {
+   flex-basis: 350px;
+}
+.top-videos .content .list .title {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+    background-color: #f4f4f4;
+}
+.top-videos .content .list .title span {
+    font-weight: bold;
+    font-size: 20px;
+}
+.top-videos .content .list .title i {
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.top-videos .content .list ul li{
+    padding: 20px;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid var(--section-background);
+}
+.top-videos .content .list ul li span {
+    display: block;
+    color: var(--main-color);
+    margin-top: 10px;
+}
+.top-videos .content .list ul li:hover {
+    color: var(--main-color);
+    background-color: #fafafa;
+}
+.top-videos .content .preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--section-background);
+}
+
+.top-videos .content .preview img{
+    max-width: 100%;
+}
+.top-videos .content .preview .info {
+    padding: 20px;
+    margin-top: 30px;
+    background-color: white;
+    color: var(--main-color-alt);
+}
+/* End Top Videos */
+.stats {
+    position: relative;
+    padding: 50px;
+    background-image: url(../imgs/stats.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+
+}
+.stats::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.849);
+}
+.stats .container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+.stats .container .box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    padding: 10px;
+    box-shadow: var(--box-shadow);
+}
+.stats .container .box::before,
+.stats .container .box::after {
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 0%;
+    background-color: var(--main-color);
+    transition: var(--main-transition);
+}
+.stats .container .box::before {
+    top: 0;
+    left: 0;
+}
+.stats .container .box::after {
+    right: 0;
+    bottom: 0;
+}
+.stats .box:hover::after,
+.stats .box:hover::before {
+
+    height: 100%;
+}
+
+.stats .container .box i {
+    margin: 15px auto;
+}
+.stats .container .box .number {
+    font-size: 45px;
+    font-weight: bold;
+}
+.stats .container .box .text {
+    color: var(--main-color);
+    font-style: oblique;
+    font-size: 20px;
+    font-weight: bold;
+}
+/* Start Stats */
+
+/* End Stats */
+
+
+/* Start Descount */
+.descount {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.descount .image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+    background-image: url(../imgs/discount-background1.jpg);
+    background-size: cover;
+    flex-basis: 50%;
+    transition: var(--main-transition);
+    animation: change-background 10s linear infinite;
+}
+.descount .image::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 143, 255, 0.973);
+    z-index: 1;
+}
+.descount .image .content {
+    z-index: 2;
+    color: white;
+}
+.descount .image .content h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+.descount .image .content p {
+    line-height: 1.6;
+}
+.descount .image .content img {
+    width: 300px;
+    max-width: 100%;
+}
+.descount form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    flex-basis: 50%;
+}
+.descount form h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+.descount form input,
+.descount form textarea {
+    display: block;
+    width: 60%;
+    margin-bottom: 25px;
+    padding: 15px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: #f9f9f9;
+    caret-color: var(--main-color);
+    outline: none;
+}
+.descount form input:focus,
+.descount form textarea:focus {
+    border: 2px solid var(--main-color);
+}
+.descount form textarea {
+    resize: none;
+    height: 100px;
+}
+.descount form [type= "submit"] {
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    background-color: var(--main-color);
+    cursor: pointer;
+}
+@media(max-width: 991px){
+    .descount .image {
+        flex-basis: 100%;
+    }
+    .descount form {
+        flex-basis: 100%;
+
+    }
+    .descount form input,
+    .descount form textarea {
+        width: 100%;
+    }
+}
+/* Change background Section */
+@keyframes change-background {
+    0%,
+    100% {
+        background-image: url(../imgs/discount-background1.jpg);
+    }
+    50% {
+        background-image: url(../imgs/discount-background2.jpg);  
+    }
+}
+/* End Descount */
+
+/* Start footer */
+
+footer {
+    padding: 70px 0;
+    position: relative;
+    transition: all var(--main-transition);
+    background-image: linear-gradient(50deg, rgba(146, 146, 146, 0.02) 0%, rgba(146, 146, 146, 0.02) 25%,rgba(82, 82, 82, 0.02) 25%, rgba(82, 82, 82, 0.02) 50%,rgba(217, 217, 217, 0.02) 50%, rgba(217, 217, 217, 0.02) 75%,rgba(41, 41, 41, 0.02) 75%, rgba(41, 41, 41, 0.02) 100%),linear-gradient(252deg, rgba(126, 126, 126, 0.01) 0%, rgba(126, 126, 126, 0.01) 25%,rgba(117, 117, 117, 0.01) 25%, rgba(117, 117, 117, 0.01) 50%,rgba(219, 219, 219, 0.01) 50%, rgba(219, 219, 219, 0.01) 75%,rgba(41, 41, 41, 0.01) 75%, rgba(41, 41, 41, 0.01) 100%),linear-gradient(272deg, rgba(166, 166, 166, 0.01) 0%, rgba(166, 166, 166, 0.01) 20%,rgba(187, 187, 187, 0.01) 20%, rgba(187, 187, 187, 0.01) 40%,rgba(238, 238, 238, 0.01) 40%, rgba(238, 238, 238, 0.01) 60%,rgba(204, 204, 204, 0.01) 60%, rgba(204, 204, 204, 0.01) 80%,rgba(5,5,5, 0.01) 80%, rgba(5,5,5, 0.01) 100%),linear-gradient(86deg, rgba(143, 143, 143, 0.02) 0%, rgba(143, 143, 143, 0.02) 12.5%,rgba(36, 36, 36, 0.02) 12.5%, rgba(36, 36, 36, 0.02) 25%,rgba(23, 23, 23, 0.02) 25%, rgba(23, 23, 23, 0.02) 37.5%,rgba(223, 223, 223, 0.02) 37.5%, rgba(223, 223, 223, 0.02) 50%,rgba(101, 101, 101, 0.02) 50%, rgba(101, 101, 101, 0.02) 62.5%,rgba(94, 94, 94, 0.02) 62.5%, rgba(94, 94, 94, 0.02) 75%,rgba(148, 148, 148, 0.02) 75%, rgba(148, 148, 148, 0.02) 87.5%,rgba(107, 107, 107, 0.02) 87.5%, rgba(107, 107, 107, 0.02) 100%),linear-gradient(25deg, rgba(2, 2, 2, 0.02) 0%, rgba(2, 2, 2, 0.02) 16.667%,rgba(51, 51, 51, 0.02) 16.667%, rgba(51, 51, 51, 0.02) 33.334%,rgba(26, 26, 26, 0.02) 33.334%, rgba(26, 26, 26, 0.02) 50.001000000000005%,rgba(238, 238, 238, 0.02) 50.001%, rgba(238, 238, 238, 0.02) 66.668%,rgba(128, 128, 128, 0.02) 66.668%, rgba(128, 128, 128, 0.02) 83.33500000000001%,rgba(21, 21, 21, 0.02) 83.335%, rgba(21, 21, 21, 0.02) 100.002%),linear-gradient(325deg, rgba(95, 95, 95, 0.03) 0%, rgba(95, 95, 95, 0.03) 14.286%,rgba(68, 68, 68, 0.03) 14.286%, rgba(68, 68, 68, 0.03) 28.572%,rgba(194, 194, 194, 0.03) 28.572%, rgba(194, 194, 194, 0.03) 42.858%,rgba(51, 51, 51, 0.03) 42.858%, rgba(51, 51, 51, 0.03) 57.144%,rgba(110, 110, 110, 0.03) 57.144%, rgba(110, 110, 110, 0.03) 71.42999999999999%,rgba(64, 64, 64, 0.03) 71.43%, rgba(64, 64, 64, 0.03) 85.71600000000001%,rgba(31, 31, 31, 0.03) 85.716%, rgba(31, 31, 31, 0.03) 100.002%),linear-gradient(90deg, hsl(80,0%,14%),hsl(80,0%,14%));
+}
+footer .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+    color: #b9b9b9;
+}
+footer .container .info h2 {
+    font-size: 45px;
+    color: white;
+    margin-bottom: 10px;
+}
+footer .container .info .social  {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+footer .container .info .social a {
+    width: 50px;
+    height: 50px;
+    margin: 10px 5px;
+    background-color: #313131;
+    color: #b9b9b9;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* witter */
+footer .container .info  .twitter:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+footer .container .info .facebook:hover {
+    background-color: #1877F2;
+    color: white;
+}
+footer .container .info .youtube:hover {
+    background-color: #CD201F;
+    color: white;
+}
+footer .container .info p {
+    max-width: 220px;
+    line-height: 1.8;
+}
+
+footer .container .links ul li {
+    position: relative;
+    padding: 15px 0;
+    border-bottom: 1px dotted #b9b9b9;
+    cursor: pointer;
+    transition: var(--main-transition);
+    overflow: hidden;
+}
+footer .container .links ul li::before {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    content: "\f101";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    margin-right: 10px;
+    color: var(--main-color);
+    
+}
+footer .container .links ul li:hover {
+    transform: translateX(20px);
+}
+footer .container .contact-us {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+}
+footer .container .contact-us .line {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+footer .container .contact-us .line .phone {
+    display: block;
+}
+footer .container .contact-us .line i {
+    font-weight: bold;
+    color: var(--main-color);
+    font-size: 22px;
+}
+footer .container .contact-us .line p {
+    line-height: 1.5;
+}
+
+footer .container .photos img {
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+    border: 3px solid white;
+}
+@media(max-width: 767px){
+
+    footer .container .contact-us .line {
+        flex-direction: column;
+        justify-content: flex-start;
+
+    }
+}
+/* End footer */
+.copyright {
+    background-image: linear-gradient(50deg, rgba(146, 146, 146, 0.02) 0%, rgba(146, 146, 146, 0.02) 25%,rgba(82, 82, 82, 0.02) 25%, rgba(82, 82, 82, 0.02) 50%,rgba(217, 217, 217, 0.02) 50%, rgba(217, 217, 217, 0.02) 75%,rgba(41, 41, 41, 0.02) 75%, rgba(41, 41, 41, 0.02) 100%),linear-gradient(252deg, rgba(126, 126, 126, 0.01) 0%, rgba(126, 126, 126, 0.01) 25%,rgba(117, 117, 117, 0.01) 25%, rgba(117, 117, 117, 0.01) 50%,rgba(219, 219, 219, 0.01) 50%, rgba(219, 219, 219, 0.01) 75%,rgba(41, 41, 41, 0.01) 75%, rgba(41, 41, 41, 0.01) 100%),linear-gradient(272deg, rgba(166, 166, 166, 0.01) 0%, rgba(166, 166, 166, 0.01) 20%,rgba(187, 187, 187, 0.01) 20%, rgba(187, 187, 187, 0.01) 40%,rgba(238, 238, 238, 0.01) 40%, rgba(238, 238, 238, 0.01) 60%,rgba(204, 204, 204, 0.01) 60%, rgba(204, 204, 204, 0.01) 80%,rgba(5,5,5, 0.01) 80%, rgba(5,5,5, 0.01) 100%),linear-gradient(86deg, rgba(143, 143, 143, 0.02) 0%, rgba(143, 143, 143, 0.02) 12.5%,rgba(36, 36, 36, 0.02) 12.5%, rgba(36, 36, 36, 0.02) 25%,rgba(23, 23, 23, 0.02) 25%, rgba(23, 23, 23, 0.02) 37.5%,rgba(223, 223, 223, 0.02) 37.5%, rgba(223, 223, 223, 0.02) 50%,rgba(101, 101, 101, 0.02) 50%, rgba(101, 101, 101, 0.02) 62.5%,rgba(94, 94, 94, 0.02) 62.5%, rgba(94, 94, 94, 0.02) 75%,rgba(148, 148, 148, 0.02) 75%, rgba(148, 148, 148, 0.02) 87.5%,rgba(107, 107, 107, 0.02) 87.5%, rgba(107, 107, 107, 0.02) 100%),linear-gradient(25deg, rgba(2, 2, 2, 0.02) 0%, rgba(2, 2, 2, 0.02) 16.667%,rgba(51, 51, 51, 0.02) 16.667%, rgba(51, 51, 51, 0.02) 33.334%,rgba(26, 26, 26, 0.02) 33.334%, rgba(26, 26, 26, 0.02) 50.001000000000005%,rgba(238, 238, 238, 0.02) 50.001%, rgba(238, 238, 238, 0.02) 66.668%,rgba(128, 128, 128, 0.02) 66.668%, rgba(128, 128, 128, 0.02) 83.33500000000001%,rgba(21, 21, 21, 0.02) 83.335%, rgba(21, 21, 21, 0.02) 100.002%),linear-gradient(325deg, rgba(95, 95, 95, 0.03) 0%, rgba(95, 95, 95, 0.03) 14.286%,rgba(68, 68, 68, 0.03) 14.286%, rgba(68, 68, 68, 0.03) 28.572%,rgba(194, 194, 194, 0.03) 28.572%, rgba(194, 194, 194, 0.03) 42.858%,rgba(51, 51, 51, 0.03) 42.858%, rgba(51, 51, 51, 0.03) 57.144%,rgba(110, 110, 110, 0.03) 57.144%, rgba(110, 110, 110, 0.03) 71.42999999999999%,rgba(64, 64, 64, 0.03) 71.43%, rgba(64, 64, 64, 0.03) 85.71600000000001%,rgba(31, 31, 31, 0.03) 85.716%, rgba(31, 31, 31, 0.03) 100.002%),linear-gradient(90deg, hsl(80,0%,14%),hsl(80,0%,14%));
+    text-align: center;
+    padding: 20px 0;
+    color: #b9b9b9;
+    border-top: 1px solid #b9b9b9 ;
+}

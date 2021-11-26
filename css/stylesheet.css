@@ -22,7 +22,7 @@ body {
     --main-transition: 0.5s;
     --main-padding: 100px 50px;
     --section-background: #ececec;
-    --box-shadow: 0 0 10px #ddd;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
     --box-shadow-inset: 0px 8px 24px rgba(0,0,0,10);
 
 }
@@ -985,14 +985,16 @@ header .container .main-nav li > a:hover::before {
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    gap: 45px;
+    gap: 30px;
 }
 .work .container .image img {
     padding: 30px;
     max-width: 100%;
+    flex-basis: 40%;
 }
 .work .work-steps {
-    padding: 50px 0;
+    padding: 20px 0;
+    flex-basis: 50%;
 }
 .work .work-steps .works {
     position: relative;
@@ -1050,25 +1052,27 @@ header .container .main-nav li > a:hover::before {
 }
 .events .container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 25px;
 }
 .events .container img {
-    max-width: 400px;
+    max-width: 450px;
+    flex-basis: 50%;
 }
 .events .container .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex: 1;
+    gap: 20px;
+    flex-basis: 50%;
 }
 .events .content .count-down {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin: 25px 0;
+    margin: 35px auto;
 }
 .events .content .count-down .box {
     text-align: center;
@@ -1102,23 +1106,32 @@ header .container .main-nav li > a:hover::before {
     color: #777;
 }
 .events .subscrib {
+    position: relative;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     margin: 30px auto;
     width: 450px;
     background-color: #f6f6f6;
     padding: 30px;
     border-radius: 50px;
+    box-shadow: var(--box-shadow);
 }
 
 .events .subscrib input:first-child {
+    position: relative;
     padding: 20px 20px;
     border-radius: 50px;
     outline: none;
     border: none;
+    flex-basis: 100%;
 }
 .events .subscrib input:last-child {
-    padding: 20px 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 41px;
+    padding: 10px 20px;
     border-radius: 50px;
     outline: none;
     border: none;
